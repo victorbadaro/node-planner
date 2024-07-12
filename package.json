@@ -9,12 +9,14 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "dependencies": {
+    "@prisma/client": "^5.16.2",
+    "fastify": "^4.28.1"
+  },
   "devDependencies": {
     "@types/node": "^20.14.10",
+    "prisma": "^5.16.2",
     "tsx": "^4.16.2",
     "typescript": "^5.5.3"
-  },
-  "dependencies": {
-    "fastify": "^4.28.1"
   }
 }
