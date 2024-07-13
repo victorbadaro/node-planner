@@ -1,6 +1,7 @@
 import cors from "@fastify/cors";
 import fastify from "fastify";
 import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod";
+import { env } from "./env";
 import { errorHandler } from "./error-handler";
 import { confirmParticipant } from "./routes/confirm-participant";
 import { confirmTrip } from "./routes/confirm-trip";
@@ -39,4 +40,4 @@ app.register(updateTrip);
 app.register(getTripDetails);
 app.register(getParticipant);
 
-app.listen({ port: 3333 }).then(() => console.log('Server is running at port 3333!'));
+app.listen({ port: env.PORT }).then(() => console.log(`Server is running at port ${env.PORT}!`));

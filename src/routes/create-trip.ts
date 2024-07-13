@@ -8,6 +8,7 @@ import { getMailClient } from "../lib/mail";
 import { prisma } from "../lib/prisma";
 
 import "dayjs/locale/pt-br";
+import { env } from "../env";
 import { ClientError } from "../errors/client-error";
 
 dayjs.locale('pt-br');
@@ -62,7 +63,7 @@ export async function createTrip(app: FastifyInstance) {
     const formattedStartDate = dayjs(starts_at).format('LL');
     const formattedEndDate = dayjs(ends_at).format('LL');
 
-    const confirmationLink = `http://localhost:3333/trips/${trip.id}/confirm`;
+    const confirmationLink = `${env.API_BASE_URL}/trips/${trip.id}/confirm`;
 
     const mail = await getMailClient();
     const message = await mail.sendMail({
